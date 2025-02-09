@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+        }
+    
+        /* Navigation styles */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+    
+        nav ul {
+            list-style-type: none;
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+            padding: 1rem 0;
+        }
+    
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            transition: background-color 0.3s;
+        }
+    
+        nav ul li a:hover {
+            background-color: #555;
+        }
+    
+        /* Container styles */
+        .container {
+            max-width: 1200px;
+            margin: 120px auto 100px;
+            padding: 0 20px;
+        }
+    
+        .blog-container {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+    
+        .blog-container h1 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+    
+        .blog-container p {
+            color: #666;
+            font-size: 1.2rem;
+        }
+    
+        /* Card styles */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 1rem;
+        }
+    
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            height: auto;
+            padding: 1.5rem;
+        }
+    
+        .card:hover {
+            transform: translateY(-5px);
+        }
+    
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+    
+        .card h2 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+    
+        .card p {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+    
+        /* Footer styles */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        footer ul{
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+            padding: 0;
+        }
+        footer ul li {
+            margin: 0 10px;
+        }
+        footer ul li a {
+            color: white;
+            text-decoration: none;
+        }
+    
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul li a {
+                padding: 0.8rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog.html">Blog</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="blog-container">
+
+            <h1>Blogs</h1>
+            <p>Come join my journey of traveling through the world</p>
+        </div>
+        <div class="card-container">
+            <div class="card">
+                <img src="https://img.etimg.com/thumb/width-1600,height-900,imgsize-1809310,resizemode-75,msid-100814903/nri/work/germany-is-running-out-of-workers-putting-growth-in-jeopardy.jpg" alt="Author img" >
+                <h2>Germany</h2>
+                <p>Germany beckons with its rich history, stunning architecture, and vibrant culture. From medieval castles and charming villages to modern cities, experience world-class museums, traditional beer gardens, the Black Forest, and renowned festivals like Oktoberfest.</p>
+            </div>
+            <div class="card">
+                <img src="https://media.assettype.com/freepressjournal/2023-09/9d676ffa-b3da-4cd8-a4bf-c65c3be4a939/statue_liberty_usa.jpg" alt="Author img">
+                <h2>USA</h2>
+                <p>The United States offers diverse experiences from bustling cities like New York and LA to natural wonders like the Grand Canyon and Yellowstone. Enjoy world-class entertainment, iconic landmarks, stunning national parks, and a melting pot of cultures.</p>
+            </div>
+            
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 Travel Blog</p>
+        <ul>
+            <li> <a href="#">Instagram</a> </li>
+            <li> <a href="#">Facebook</a> </li>
+            <li> <a href="#">Twitter</a> </li>
+        </ul>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Loan Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: #f0f2f5;
+        }
+        .calculator {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .input-group {
+            margin: 15px 0;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e9ecef;
+            border-radius: 4px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h2>Home Loan Calculator</h2>
+        <div class="input-group">
+            <label for="principal">Principal Amount (₹)</label>
+            <input type="number" id="principal" placeholder="Enter principal amount">
+        </div>
+        <div class="input-group">
+            <label for="years">Time Period (Years)</label>
+            <input type="number" id="years" placeholder="Enter time period">
+        </div>
+        <div class="input-group">
+            <label for="interest">Interest Rate (%)</label>
+            <input type="number" id="interest" step="0.1" placeholder="Enter interest rate">
+        </div>
+ 
+        <button onclick="calculateLoan()">Calculate EMI</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function calculateIntrest(){
+            const years = parseFloat(document.getElementById('years').value);
+            let interest = 0;
+            if(years <= 5){
+                interest = 6.5;
+            } else if(years > 5 && years <= 10){
+                interest = 7.5;
+            } else if(years > 10 && years <= 15){
+                interest = 8.5;
+            } else if(years > 15 && years <= 20){
+                interest = 9.5;
+            } else if(years > 20){
+                interest = 10.5;
+            }
+            document.getElementById('interest').value = interest;
+        }
+
+        document.getElementById('years').addEventListener('change', calculateIntrest);
+
+        function calculateLoan() {
+            const principal = parseFloat(document.getElementById('principal').value);
+            const interest = parseFloat(document.getElementById('interest').value);
+            const years = parseFloat(document.getElementById('years').value);
+
+            if (!principal || !interest || !years) {
+                alert('Please enter all values');
+                return;
+            }
+
+            const monthlyInterest = interest / (12 * 100);
+            const months = years * 12;
+            const emi = principal * monthlyInterest * Math.pow(1 + monthlyInterest, months) / (Math.pow(1 + monthlyInterest, months) - 1);
+            const totalAmount = emi * months;
+
+            document.getElementById('result').innerHTML = `
+                <h3>Loan Details:</h3>
+                <p>Monthly EMI: ₹${emi.toFixed(2)}</p>
+                <p>Total Amount: ₹${totalAmount.toFixed(2)}</p>
+                <p>Total Interest: ₹${(totalAmount - principal).toFixed(2)}</p>
+            `;
+        }
+    </script>
+</body>
+</html>
